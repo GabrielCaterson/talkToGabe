@@ -1,0 +1,22 @@
+{
+  "name": "talktogabe",
+  "version": "1.0.0",
+  "description": "GPT-2 based discord bot, trained on my discord debate messages.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielCaterson/talkToGabe.git"
+  },
+  "author": "Gabriel Caterson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielCaterson/talkToGabe/issues"
+  },
+  "homepage": "https://github.com/GabrielCaterson/talkToGabe#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
+}
