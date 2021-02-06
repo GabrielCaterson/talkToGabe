@@ -5,7 +5,6 @@ let client = new Discord.Client();
 
 const color = require("./color.js");
 const chalk = require("chalk");
-chalk.red("Hello!");
 
 let myID = "224703409515790336";
 

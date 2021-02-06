@@ -1,0 +1,22 @@
+node_modules
+
+*.txt
+
+models/
+.vscode
+gpt-2-finetuning/models (old 2)
+gpt-2-finetuning/models (old)
+
+
+
+
+.env
+AY-general-dataset.json
+bot_account_info
+config.json
+my-chats-copy.json
+my-chats-test.json
+my-chats.json
+notes
+whyZaya_dataset.json
+wutang_dataset.json
