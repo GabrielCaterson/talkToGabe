@@ -1,8 +1,9 @@
-node_modules
+node_modules/
 
 *.txt
 
 models/
+old discord/
 .vscode
 gpt-2-finetuning/models (old 2)
 gpt-2-finetuning/models (old)
