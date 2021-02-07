@@ -13,6 +13,7 @@ gpt-2-finetuning/models (old)
 .env
 AY-general-dataset.json
 bot_account_info
+bot.py
 config.json
 my-chats-copy.json
 my-chats-test.json
