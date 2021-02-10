@@ -54,6 +54,7 @@ function sendPythonRequest(input, channel = null, message = null) {
 	if (!activePythonRequest) {
 		try {
 			activePythonRequest = true;
+			//color.bgRed('id + "$:input:" + input' + " ----- " + id + "$:input:" + input)
 			shell.send(id + "$:input:" + input);
 		} catch (e) {
 			activePythonRequest = false;
@@ -166,9 +167,9 @@ function sendHooks(channelID, messages) {
 		setTimeout(() => {
 			color.p(channelID);
 			color.p(typeof channelID);
-			color.p(channel);
+			//color.p(channel);
 			color.p(channel.name);
-			color.p(message.author.username);
+			color.p(message.author.displayName);//color.p(message.author.username);//debug?
 
 			//channel.createWebhook(message.author.username, {avatar: message.author.avatarURL()}).then(webhook => {
 			channel.createWebhook("botZaya", {
@@ -236,7 +237,9 @@ const content = function(mainClient, message, command, args) {
 		console.log("talkToZaya command has run.");
 		let input = message.content;
 		let id = message.id;
-		sendPythonRequest(input.replace(/\$:/g, ":") + " $: END " + id + " <|endoftext|>", message.channel.id, message);
+		//debug - after training, switch this back.
+		//sendPythonRequest(input.replace(/\$:/g, ":") + " $: END " + id + " <|endoftext|>", message.channel.id, message);
+		sendPythonRequest(input.replace(/\$:/g, ":"), message.channel.id, message);
 
 		/*message.channel.fetchMessages({limit: 10}).then(result => {
 			let encoded = encodeChannel(result.array());

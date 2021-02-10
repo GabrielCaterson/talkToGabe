@@ -18,7 +18,7 @@ const talkToGPT = require("./modules/talkToGPT.js");
 
 
 client.once('ready', () => {
-	color.g("Let's chat!");
+	color.g("Talk nerdy to me.");
 
 	status.set(client);
 
@@ -59,13 +59,14 @@ client.on('message', message => {
 
 
 	if (talkToGPT.content(client, message, command, args)) {
+		color.r("----------------------------------------------------------------");
+		console.log();
 		return;
 	}
 
 	//prefixed commands only
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
-	color.r("----------------------------------------------------------------");
-	console.log();
+	
 
 });
 
