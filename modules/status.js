@@ -11,7 +11,7 @@ const Discord = require('discord.js');
 const { prefix, token } = require('../config.json');
 
 const set = function(client) {
-	let iterator = Math.floor(Math.random() * 5);
+	let iterator = Math.floor(Math.random() * 6);
 	function setStatus() {
 
 		let nameText = `cries for ${prefix}help, and doing what I can.`;
@@ -46,7 +46,13 @@ const set = function(client) {
 				nameText = "paint dry.";
 				typeText = "WATCHING";
 
-				iterator = 0;
+				iterator++;
+				break;
+			case 5:
+				nameText = "Talk nerdy to me!";
+				typeText = "LISTENING";
+
+				iterator = 0;//remember to change this to iterator++ if you add more.
 				break;
 			default:
 				iterator = 0;

@@ -7,7 +7,6 @@ import numpy as np
 import tensorflow as tf
 tf.version.VERSION
 print("------------- TENSORFLOW VERSION: " + tf.VERSION)
-print("------------- TENSORFLOW VERSION: " + tf.version.VERSION)
 
 
 import model, sample, encoder
@@ -82,7 +81,6 @@ def interact_model(
 					pass
 			id = raw_text.split("$:input:")[0]
 			text = raw_text.split("$:input:")[1]
-			print("--- text: " + text)
 			context_tokens = enc.encode(text)
 			generated = 0
 			print("$:input: " + text)

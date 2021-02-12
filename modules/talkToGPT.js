@@ -54,7 +54,6 @@ function sendPythonRequest(input, channel = null, message = null) {
 	if (!activePythonRequest) {
 		try {
 			activePythonRequest = true;
-			//color.bgRed('id + "$:input:" + input' + " ----- " + id + "$:input:" + input)
 			shell.send(id + "$:input:" + input);
 		} catch (e) {
 			activePythonRequest = false;
@@ -92,44 +91,33 @@ function handlePythonResponse(message) {
 
 
 function decodeChannel(data) {
-	color.y("data: " + data);//debug ------------
 	let decoded = [];
 	let entries = data.split("<|endoftext|>");
-	color.y("entries (" + entries.length + "): " + entries);//debug ------------
 	for (let entry of entries) {
 		try {
 			entry = entry.trim();
 			let points = entry.split("$:");
-			console.log("points(" + points.length + "): " + points);//debug ------------
 
 			if (points.length > 1) {
 
 				let header = points[1].trim();
 				let content = points[2].trim();
-				color.y("content: " + content);//debug ------------
 
 				if (/^START \d+ \d+$/.test(header)) {
-					color.y("RegEx has been evaluated as true");
 					let user = header.split(" ")[2];
-					color.y("user: " + user);//debug ------------
 					decoded.push({author: user, content: content});
-					color.y("decoded (before the else): " + decoded);//debug ------------
 
 				}
 
 			} else { //I added this to handle the untrained network.
-				color.y("points wasn't greater than 1");
 
 				decoded.push({author: myID, content: points});
-				color.y("decoded (inside the else): " + JSON.stringify(decoded));//debug ------------
 
 			}
 		} catch (e) {
 		}
 	}
-	color.y("decoded:");
 
-	color.y(decoded);
 	return decoded;
 }
 
@@ -147,7 +135,6 @@ function sendHooks(channelID, messages) {
 	let delay = 0;
 	let hook = webhook;
 
-	color.b("messages.length: " + messages.length);
 
 	for (let message of messages) {
 
@@ -161,23 +148,15 @@ function sendHooks(channelID, messages) {
 		} catch (e) {
 		}
 
-		color.b("Webhook should run soon. Output is: ");
-		color.b(text);
 
 		setTimeout(() => {
-			color.p(channelID);
-			color.p(typeof channelID);
-			//color.p(channel);
-			color.p(channel.name);
-			color.p(message.author.displayName);//color.p(message.author.username);//debug?
-
+			
 			//channel.createWebhook(message.author.username, {avatar: message.author.avatarURL()}).then(webhook => {
 			channel.createWebhook("botZaya", {
 					avatar: client.user.displayAvatarURL()
 				})
 				.then(webhook => {
 				webhook.send(text).then(() => {
-					color.b("Webhook has run. Output is: " + text);
 
 					webhook.delete();
 
@@ -228,13 +207,11 @@ function sendHooks(channelID, messages) {
 
 
 const content = function(mainClient, message, command, args) {
-	console.log("Command run.");
 	client = mainClient;
 
 
 	if ((message.channel.id === "793934156110364692") ||
 			(command === "talkToZaya")) {
-		console.log("talkToZaya command has run.");
 		let input = message.content;
 		let id = message.id;
 		//debug - after training, switch this back.

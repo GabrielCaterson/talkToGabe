@@ -37,7 +37,6 @@ client.on('message', message => {
 
 	if (message.author.bot) return;
 
-	color.p(message.content);
 
 	//message.channel.createWebhook(message.author.username, {avatar: message.author.avatarURL()}).then(webhook => {
 	/*message.channel.createWebhook(message.author.username, {avatar: message.author.avatarURL()}).then(webhook => {
@@ -59,8 +58,6 @@ client.on('message', message => {
 
 
 	if (talkToGPT.content(client, message, command, args)) {
-		color.r("----------------------------------------------------------------");
-		console.log();
 		return;
 	}
 
