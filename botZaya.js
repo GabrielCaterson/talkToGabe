@@ -2,11 +2,13 @@ const Discord = require('discord.js');
 const { prefix, token, nickname } = require('./config.json');
 const client = new Discord.Client();
 
-//Modules
+//small functions
 const color = require("./modules/color.js");
 const isNumber = require("./modules/isNumber.js");
+const errorMessage = require("./modules/errorMessage.js");
 
 
+//bot functions
 const help = require("./modules/help.js");
 const dice = require("./modules/dice.js");
 const contradiction = require("./modules/contradiction.js");
@@ -18,7 +20,10 @@ const status = require("./modules/status.js");
 const monitor = require("./modules/monitor.js");
 const videos = require("./modules/videos.js");
 const deleter = require("./modules/deleter.js");
-const errorMessage = require("./modules/errorMessage.js");
+const propLogic = require("./modules/propLogic.js");
+
+
+
 
 //const talkToGPT = require("./modules/talkToGPT.js");
 
