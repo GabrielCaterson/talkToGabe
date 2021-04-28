@@ -54,8 +54,19 @@ client.once('ready', () => {
 
 
 client.on('message', message => {
-	const args = message.content.slice(prefix.length).trim().split(/ +/);
-	const command = args.shift().toLowerCase();
+	let args = message.content.slice(prefix.length)
+								.trim()
+								.split(/ +/);
+	args[0] = args[0].split(/\n+/);
+	args = [].concat(...args);
+
+	const command = args.shift()
+						.toLowerCase();
+						
+	const combinedArgs = args.slice()
+								.join(" ");
+
+
 
 
 	//actions
@@ -119,6 +130,8 @@ client.on('message', message => {
 	} else if (contradiction.content(message, command, args)) {
 
 	} else if (say.content(message, command, args, client)) {
+
+	} else if (propLogic.content(message, command, args, combinedArgs)) {
 
 	} else if (command === "d") {
 

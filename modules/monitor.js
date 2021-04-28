@@ -27,6 +27,7 @@ const string = function(client, message, color, client) {
 	watchFor(myID, "Za*a");
 	watchFor(myID, "Z**a");
 
+
 }
 
 module.exports = {string}
