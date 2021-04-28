@@ -48,7 +48,7 @@ const content = function(syllogism) {
 
             proposition = proposition.join("");
             
-            checkedSyllogism[i] = proposition;
+            checkedSyllogism[i] = proposition; 
         }
 
         let beforeCollapse = checkedSyllogism.slice();
@@ -56,18 +56,19 @@ const content = function(syllogism) {
         let i = 0;
         do {
             let beforeCollapse = afterCollapse.slice();
-            color.b(afterCollapse);
+            //color.b(afterCollapse);
 
             let newAfterCollapse = afterCollapse.map(proposition => {
-                proposition = proposition.split("(P∧P)").join("P")
+               /* proposition = proposition.split("(P∧P)").join("P")
                                             .split("(P)").join("P");
+                */
+                //color.b(afterCollapse);
+                //color.r(proposition);
                 
-                color.b(afterCollapse);
-                color.r(proposition);
-                
+
             });
             afterCollapse = newAfterCollapse.slice();
-            color.b(afterCollapse);
+            //color.b(afterCollapse);
 
             afterCollapse = afterCollapse.filter(proposition => {
                 
@@ -78,19 +79,19 @@ const content = function(syllogism) {
                         (proposition !== "(P∧P)");
 
             });
-            color.g(afterCollapse);
+            //color.g(afterCollapse);
 
             i++;
-            color.y(beforeCollapse);
+            //color.y(beforeCollapse);
 
-            color.w(afterCollapse);
+            //color.w(afterCollapse);
 
         } while (!(beforeCollapse === afterCollapse) && i<5);
         //} while (i<5);
         
 
 
-        color.w(afterCollapse);
+        //color.w(afterCollapse);
 
     }
     checkStructure(syllogism);

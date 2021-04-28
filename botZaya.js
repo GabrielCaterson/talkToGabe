@@ -62,7 +62,7 @@ client.on('message', message => {
 
 	const command = args.shift()
 						.toLowerCase();
-						
+
 	const combinedArgs = args.slice()
 								.join(" ");
 
@@ -73,7 +73,7 @@ client.on('message', message => {
 	occasionalReply.content(message);
 	autoReaction.content(message);
 	nag.content(message, client);
-	monitor.string(client, message, color1, client);
+	monitor.string(client, message, client);
 
 
 	//commands:
