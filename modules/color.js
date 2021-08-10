@@ -89,36 +89,45 @@ const black = blk;
 
 function br(stringToColor) { setColor(colors.bg.red, stringToColor) };
 const bgRed = br;
+const R = br;
 
 
 function by(stringToColor) { setColor(colors.bg.yellow, stringToColor) };
 const bgYellow = by;
+const Y = by;
 
 
 function bg(stringToColor) { setColor(colors.bg.green, stringToColor) };
 const bgGreen = bg;
+const G = bg;
 
 
 function bb(stringToColor) { setColor(colors.bg.blue, stringToColor) };
 const bgBlue = bb;
+const B = bb;
 
 
 function bm(stringToColor) { setColor(colors.bg.magenta, stringToColor) };
 const bgMagenta = bm;
 const bgPurple = bm;
 const bp = bm;
+const P = bm;
+const M = bm;
 
 
 function bc(stringToColor) { setColor(colors.bg.cyan, stringToColor) };
 const bgCyan = bc;
+const C = bc;
 
 
 function bw(stringToColor) { setColor(`${colors.bg.white + colors.fg.black}`, stringToColor) };
 const bgWhite = bw;
+const W = bw;
 
 
 function bblk(stringToColor) { setColor(`${colors.bg.black + colors.fg.white}`, stringToColor) };
 const bgBlack = bblk;
+const BLK = bblk;
 
 
 
@@ -148,14 +157,14 @@ function hidden(stringToColor) { setColor(colors.hidden, stringToColor) };
 
 
 module.exports = {
-	r, red,      				br, bgRed,
-	y, yellow,   				by, bgYellow,
-	g, green,    				bg, bgGreen,
-	b, blue,     				bb, bgBlue,
-	p, m, purple, magenta,	 	bm, bp, bgMagenta, bgPurple,
-	c, cyan,     				bc, bgCyan,
-	w, white,	 				bw, bgWhite,
-	blk, black,	 				bblk, bgBlack,
+	r, red,      				br, bgRed,                      R,
+	y, yellow,   				by, bgYellow,                   Y,
+	g, green,    				bg, bgGreen,                    G,
+	b, blue,     				bb, bgBlue,                     B,
+	p, m, purple, magenta,	 	bm, bp, bgMagenta, bgPurple,    P, M,
+	c, cyan,     				bc, bgCyan,                     C,
+	w, white,	 				bw, bgWhite,                    W,
+	blk, black,	 				bblk, bgBlack,                  BLK,
 	
 	bright,
 	dim,

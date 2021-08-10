@@ -13,8 +13,8 @@ const content = function(message, command, args, client) {
 
 		} else if (command === "sayas") {
 			const user = message.content.substring(
-				message.content.lastIndexOf(":") + 1,
-				message.content.lastIndexOf(";")
+				message.content.lastIndexOf("[") + 1,
+				message.content.lastIndexOf("]")
 			);
 
 			let copiedText = message.content.substring((prefix + command + user).length + 4);

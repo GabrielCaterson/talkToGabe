@@ -7,7 +7,7 @@ const color = require("./color.js");
 
 
 const content = function(message, command, args, embedColor, deleterIsRunning) {
-	if (command === "d" ) {
+	if ((command === "b") || (command === "d") || (command === "logicboisucks" ) || (command === "logicboigotrektbybruff" )) {
 
 
 		const emojiList = ["0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"];

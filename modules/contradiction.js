@@ -34,7 +34,9 @@ const subjectNoun = [ "the universe",
 											"Footsoldier's hat stack",
 											"Set Theory, Logic and their Limitations",
 											"a weak little man who can't put down a cheeseburger",
-											"dialetheism"];
+											"dialetheism",
+											"truth scroll 4"
+										];
 const linkingVerb = [ "is made of",
 											"looks like",
 											"tastes like",
@@ -85,26 +87,33 @@ const predicateNoun = [	"toads",
 											"how you feel when you get banned from AY for the very first time",
 											"your face when you're getting 6 stepped by Avi",
 											"infinity",
-											"∃S ∈ $w such that ∅ 6= S ∩ [φ] ⊆ [ψ] and ∃T ∈ $w such that ∅ 6= T ∩ [ψ] ⊆ [φ], then ∃Z ∈ $w such that ∅ 6= Z ∩ [φ] = Z ∩ [ψ]. Suppose the antecedent and the negation of the consequent. Then ∅ 6= C ∩ [φ] ⊆ [ψ] and ∅ 6= D ∩ [ψ] ⊆ [φ]. ∀Z ∈ $w(Z ∩ [φ] 6= Z ∩ [ψ] ∨ ∅ = Z ∩ [φ]) and ∅ 6= C ∩ [φ] imply C ∩ [φ] 6= C ∩ [ψ]. Since ∅ 6= D ∩ [ψ] ⊆ [φ] implies ∅ 6= D ∩ [φ], by the same reasoning as above we get D ∩ [φ] 6= D ∩ [ψ]. If x ∈ C ∩ [φ] and x /∈ C ∩ [ψ], x ∈ C ∩ [φ] ⊆ [ψ] implies x ∈ C ∩ [ψ] which is impossible; so x /∈ C ∩ [φ] and x ∈ C ∩ [ψ]. Parallel reasoning shows that there is a y such that y ∈ D∩[φ] and y /∈ D∩[ψ]. By nesting, either C ⊆ D or D ⊂ C. If C ⊆ D, then x ∈ D ∩ [ψ] ⊆ [φ] implies x ∈ C ∩ [φ] which is impossible. But if D ⊂ C, then y ∈ C ∩ [φ] ⊆ [ψ] implies y ∈ D ∩ [ψ] which is impossible. This proves the lemma. Now consider an arbitrary world w ∈ N of an arbitrary model such that (φ  ψ)ρw1 and (ψ  φ)ρw1. By the lemma, ∃Z ∈ $w such that ∅ 6= Z ∩ [φ] = Z ∩ [ψ]. Then it is clear that Z ∩ [φ] ⊆ [χ] if and only if Z ∩ [ψ] ⊆ [χ]. Thus, in no logically accessible world can your contradiction be successfully established in a dialectical sense"
+											"∃S ∈ $w such that ∅ 6= S ∩ [φ] ⊆ [ψ] and ∃T ∈ $w such that ∅ 6= T ∩ [ψ] ⊆ [φ], then ∃Z ∈ $w such that ∅ 6= Z ∩ [φ] = Z ∩ [ψ]. Suppose the antecedent and the negation of the consequent. Then ∅ 6= C ∩ [φ] ⊆ [ψ] and ∅ 6= D ∩ [ψ] ⊆ [φ]. ∀Z ∈ $w(Z ∩ [φ] 6= Z ∩ [ψ] ∨ ∅ = Z ∩ [φ]) and ∅ 6= C ∩ [φ] imply C ∩ [φ] 6= C ∩ [ψ]. Since ∅ 6= D ∩ [ψ] ⊆ [φ] implies ∅ 6= D ∩ [φ], by the same reasoning as above we get D ∩ [φ] 6= D ∩ [ψ]. If x ∈ C ∩ [φ] and x /∈ C ∩ [ψ], x ∈ C ∩ [φ] ⊆ [ψ] implies x ∈ C ∩ [ψ] which is impossible; so x /∈ C ∩ [φ] and x ∈ C ∩ [ψ]. Parallel reasoning shows that there is a y such that y ∈ D∩[φ] and y /∈ D∩[ψ]. By nesting, either C ⊆ D or D ⊂ C. If C ⊆ D, then x ∈ D ∩ [ψ] ⊆ [φ] implies x ∈ C ∩ [φ] which is impossible. But if D ⊂ C, then y ∈ C ∩ [φ] ⊆ [ψ] implies y ∈ D ∩ [ψ] which is impossible. This proves the lemma. Now consider an arbitrary world w ∈ N of an arbitrary model such that (φ  ψ)ρw1 and (ψ  φ)ρw1. By the lemma, ∃Z ∈ $w such that ∅ 6= Z ∩ [φ] = Z ∩ [ψ]. Then it is clear that Z ∩ [φ] ⊆ [χ] if and only if Z ∩ [ψ] ⊆ [χ]. Thus, in no logically accessible world can your contradiction be successfully established in a dialectical sense",
+											"wendy's mustard",
+											"two hamburgers and a chicken sandwich that are going to be thrown away (or given to someone else)",
+											"a grandmother",
+											"a notorious sophist",
+											"the google doc"
+
 										];
 
 
 const content = function(message, command, args) {
 	if(command === "contradiction") {
-		if (args.length) {
-			const proposition = args.join(" ");
-			const subjectNounChance = Math.floor(Math.random() * subjectNoun.length);
-			const linkingVerbChance = Math.floor(Math.random() * linkingVerb.length);
-			const predicateNounChance = Math.floor(Math.random() * predicateNoun.length);
+		const proposition = args.join(" ");
+		const subjectNounChance = Math.floor(Math.random() * subjectNoun.length);
+		const linkingVerbChance = Math.floor(Math.random() * linkingVerb.length);
+		const predicateNounChance = Math.floor(Math.random() * predicateNoun.length);
 
+		if (proposition.includes("@")) {
+			message.channel.send("CONTRADICTION!!! You are asserting that it is the case that you're a sophist and a glitch abuser, and it is not the case that you're a sophist and a glitch abuser. Therefore, by the principle of explosion, it must be the case that " + subjectNoun[subjectNounChance] + " " + linkingVerb[linkingVerbChance] + " " + predicateNoun[predicateNounChance] + ".");
+			return true;
+		}
+		if (args.length) {
+			
 			message.channel.send("CONTRADICTION!!! You are asserting that it is the case that " + proposition + ", and it is not the case that " + proposition + ". Therefore, by the principle of explosion, it must be the case that " + subjectNoun[subjectNounChance] + " " + linkingVerb[linkingVerbChance] + " " + predicateNoun[predicateNounChance] + ".");
 
 		} else {
-			const proposition = args.join(" ");
-			const subjectNounChance = Math.floor(Math.random() * subjectNoun.length);
-			const linkingVerbChance = Math.floor(Math.random() * linkingVerb.length);
-			const predicateNounChance = Math.floor(Math.random() * predicateNoun.length);
-
+			
 			message.channel.send("CONTRADICTION!!! You are asserting that it is the case that P, and it is not the case that P. Therefore, by the principle of explosion, it must be the case that " + subjectNoun[subjectNounChance] + " " + linkingVerb[linkingVerbChance] + " " + predicateNoun[predicateNounChance] + ".");
 		}
 		return true;

@@ -21,6 +21,9 @@ const monitor = require("./modules/monitor.js");
 const videos = require("./modules/videos.js");
 const deleter = require("./modules/deleter.js");
 const propLogic = require("./modules/propLogic.js");
+const translator = require("./modules/translator.js");
+const join = require("./modules/join.js");
+
 
 
 
@@ -43,7 +46,7 @@ let deleterIsRunning = false;
 
 
 client.once('ready', () => {
-	color.g("I'M IN!");
+	color.G("I'M IN!");
 
 	status.set(client);
 
@@ -54,6 +57,8 @@ client.once('ready', () => {
 
 
 client.on('message', message => {
+	//color.g("Message recieved.");
+
 	let args = message.content.slice(prefix.length)
 								.trim()
 								.split(/ +/);
@@ -63,9 +68,11 @@ client.on('message', message => {
 	const command = args.shift()
 						.toLowerCase();
 
-	const combinedArgs = args.slice()
-								.join(" ");
-
+	/*const combinedArgs = args.slice()
+								.join(" ");*/
+	const combinedArgs = message.content.slice(prefix.length + command.length)
+													.trim();
+	
 
 
 
@@ -133,7 +140,9 @@ client.on('message', message => {
 
 	} else if (propLogic.content(message, command, args, combinedArgs)) {
 
-	} else if (command === "d") {
+	} else if (translator.content(message, command, args, combinedArgs)) {
+
+	} else if (command === "logicboigotrektbybruff" || command === "b") {
 
 		if (deleterIsRunning == true) {
 			deleter.content(message, command, args, color2, true);
@@ -152,7 +161,10 @@ client.on('message', message => {
 
 		}
 
+	} else if (join.content(message, command, args)) {
+	
 	}
+
 
 });
 

@@ -11,7 +11,6 @@ const string = function(client, message, client) {
 	let cleanString = message.content.toLowerCase();
 	cleanString = cleanString.split("termizaya").join("")
 				.split("chadzaya").join("");
-	color.y(cleanString);
 	
 
 	function watchFor(user, stringToWatch) {

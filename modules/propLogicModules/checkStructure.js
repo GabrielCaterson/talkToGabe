@@ -1,11 +1,14 @@
 //const Discord = require('discord.js');
 const color = require("../color.js");
 
-color.y("Begun.")
-let syllogism = "P && Q \n R.S \n S <-> T \n T ⇒ ~ U \n U | V \n ∴ V"
-syllogism = [ 'P∧Q', 'R∧S', 'S⇔T', 'T⇒¬U', 'U∨V', '∴V' ];
-syllogism = [ '(PPP∧Q)', 'Ran∧S', '(S⇔T)', '(T⇒¬U)⇒¬U', 'U∨V', '¬V' ];
-syllogism = [ '(PPP∧Q)', 'Ran∧S', '(S⇔T)', '(P∧(P∧((T⇒¬U)⇒¬U)∧(P∧P)))', 'U∨V', '¬V' ];
+let syllogism1 = "P && Q \n R.S \n S <-> T \n T ⇒ ~ U \n U | V \n ∴ V"
+syllogism1 = [ 'P∧Q', 'R∧S', 'S⇔T', 'T⇒¬U', 'U∨V', '∴V' ];
+syllogism1 = [ '(PPP∧Q)', 'Ran∧S', '(S⇔T)', '(T⇒¬U)⇒¬U', 'U∨V', '¬V' ];
+syllogism1 = [ '(PPP∧Q)', 'Ran∧S', '(S⇔T)', '(P∧(P∧((T⇒¬U)⇒¬U)∧(P∧P)))', 'U∨V', '¬V' ];//bad
+let syllogism2 = [ '(PPP∧Q)', 'Ran∧S', '(S⇔T)', '(P∧((P∧((T⇒¬U)⇒¬U))∧(P∧P)))', 'U∨V', '¬V' ];//good
+let syllogism3 = [ '(PPP∧Q)', 'Ran∧S', '(S⇔T)⇔P⇔P⇔P⇔P', '(P∧(P∧((T⇒¬U)⇒¬U)∧(P∧P)))', 'U∨V', '¬V' ];//bad
+let syllogism4 = [ '(PPP∧Q)', 'Ran∧S', '(S⇔⇔⇔T)', '(P∧((P∧((T⇒¬U)⇒¬U))∧(P∧P)))', 'U∨V', '¬V' ];//bad
+let syllogism5 = [ '(PPP∧Q)', 'Ran∧S', '(S⇔T(S⇔T))', '(P∧((P∧((T⇒¬U)⇒¬U))∧(P∧P)))', 'U∨V', '¬V' ];//good
 
 
 //∧∨⊻⇒⇔∴¬
@@ -55,20 +58,16 @@ const content = function(syllogism) {
         let afterCollapse = checkedSyllogism.slice();
         let i = 0;
         do {
-            let beforeCollapse = afterCollapse.slice();
-            //color.b(afterCollapse);
+            beforeCollapse = afterCollapse.slice();
+            
 
             let newAfterCollapse = afterCollapse.map(proposition => {
-               /* proposition = proposition.split("(P∧P)").join("P")
+                return proposition.split("(P∧P)").join("P")
                                             .split("(P)").join("P");
-                */
-                //color.b(afterCollapse);
-                //color.r(proposition);
                 
-
             });
             afterCollapse = newAfterCollapse.slice();
-            //color.b(afterCollapse);
+            
 
             afterCollapse = afterCollapse.filter(proposition => {
                 
@@ -79,22 +78,26 @@ const content = function(syllogism) {
                         (proposition !== "(P∧P)");
 
             });
-            //color.g(afterCollapse);
 
             i++;
-            //color.y(beforeCollapse);
 
-            //color.w(afterCollapse);
-
-        } while (!(beforeCollapse === afterCollapse) && i<5);
-        //} while (i<5);
+        } while (!(beforeCollapse.toString() === afterCollapse.toString()) && (i<10000));
+        //TODO: make the limit for i longer?
         
+        if (afterCollapse.toString());
 
-
-        //color.w(afterCollapse);
+        color.r("" + afterCollapse.length);
+        return afterCollapse.length;
 
     }
     checkStructure(syllogism);
 }
-content(syllogism);
+/*
+content(syllogism1);
+content(syllogism2);
+content(syllogism3);
+content(syllogism4);
+content(syllogism5);
+*/
+
 module.exports = {content}
